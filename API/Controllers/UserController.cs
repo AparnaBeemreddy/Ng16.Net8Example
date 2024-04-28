@@ -1,13 +1,16 @@
 ﻿using API.Data;
 using API.Entities;
+using API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
+//[Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(DataContext dataContext) : ControllerBase
+public class UserController(DataContext dataContext, IUserService userService) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetAll()
@@ -21,14 +24,10 @@ public class UserController(DataContext dataContext) : ControllerBase
         return await dataContext.Users.FindAsync(id);
     }
 
-    [HttpPost]
-    public async Task Register(string username, string password)
+    [HttpGet("get-me")]
+    public ActionResult<string> GetMe()
     {
-        var newUser = new User
-        {
-            UserName = username,
-            Password = password
-        };
-        await dataContext.Users.AddAsync(newUser);
+        var userName = userService.GetMyName();
+        return userName;
     }
 }
