@@ -2,59 +2,62 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController(DataContext dataContext, IConfiguration configuration)
+    public class AuthController(IUserService userService, IConfiguration configuration)
         : ControllerBase
     {
         [HttpPost("register")]
-        public async Task<User> Register(UserDTO user)
+        public async Task<User> Register(UserDTO userDTO)
         {
-            CreatePasswordHash(user.Password, out byte[] passwordHash, out byte[] passwordSalt);
+            userService.CreatePasswordHash(userDTO.Password, out byte[] passwordHash, out byte[] passwordSalt);
 
             var newUser = new User
             {
-                UserName = user.Username,
+                UserName = userDTO.Username,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };
 
-            await dataContext.Users.AddAsync(newUser);
-            await dataContext.SaveChangesAsync();
+            await userService.Add(newUser);
 
             return newUser;
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserDTO request)
+        public async Task<IActionResult> Login(UserDTO userDTO)
         {
-            var user = await dataContext.Users.Where(u => u.UserName == request.Username).FirstOrDefaultAsync();
+            var user = await userService.GetByName(userDTO.Username);
 
             if (user == null)
             {
                 return BadRequest("Invalid Username/Password."); //User not found.
             }
 
-            if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
+            if (!userService.VerifyPasswordHash(userDTO.Password, user.PasswordHash, user.PasswordSalt))
             {
                 return BadRequest("Invalid Username/Password."); //Incorrect password.
             }
 
-            string token = CreateToken(user);
-            var newRefreshToken = GenerateRefreshToken();
-            SetRefreshToken(newRefreshToken, user);
+            string token = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            var newRefreshToken = userService.GenerateRefreshToken();
 
-            await dataContext.SaveChangesAsync();
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = newRefreshToken.TokenExpires
+            };
+            user = await userService.SetRefreshToken(newRefreshToken, user, cookieOptions);
+
+            Response.Cookies.Append(Cookies.RefreshToken, user.RefreshToken, cookieOptions);
+            Response.Cookies.Append(Cookies.Name, user.UserName, cookieOptions);
 
             return Ok(token);
         }
@@ -68,7 +71,7 @@ namespace API.Controllers
                 return Unauthorized("Invalid Refresh Token.");
             }
 
-            var user = await dataContext.Users.Where(u => u.UserName == Request.Cookies[Cookies.Name]).FirstOrDefaultAsync();
+            var user = await userService.GetByName(Request.Cookies[Cookies.Name]);
 
             if (!user.RefreshToken.Equals(refreshToken))
             {
@@ -79,77 +82,20 @@ namespace API.Controllers
                 return Unauthorized("Token expired.");
             }
 
-            string token = CreateToken(user);
-            var newRefreshToken = GenerateRefreshToken();
-            SetRefreshToken(newRefreshToken, user);
+            string token = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            var newRefreshToken = userService.GenerateRefreshToken();
 
-            await dataContext.SaveChangesAsync();
-
-            return Ok(newRefreshToken.Token);
-        }
-
-        private void SetRefreshToken(RefreshToken newRefreshToken, User user)
-        {
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
                 Expires = newRefreshToken.TokenExpires
             };
+            user = await userService.SetRefreshToken(newRefreshToken, user, cookieOptions);
 
-            Response.Cookies.Append(Cookies.RefreshToken, newRefreshToken.Token, cookieOptions);
+            Response.Cookies.Append(Cookies.RefreshToken, user.RefreshToken, cookieOptions);
             Response.Cookies.Append(Cookies.Name, user.UserName, cookieOptions);
 
-            user.RefreshToken = newRefreshToken.Token;
-            user.TokenCreated = newRefreshToken.TokenCreated;
-            user.TokenExpires = newRefreshToken.TokenExpires;
-        }
-
-        private static RefreshToken GenerateRefreshToken()
-        {
-            var refreshToken = new RefreshToken
-            {
-                Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
-                TokenCreated = DateTime.Now,
-                TokenExpires = DateTime.Now.AddDays(7)
-            };
-
-            return refreshToken;
-        }
-
-        private string CreateToken(User user)
-        {
-            List<Claim> claims = [
-                new(ClaimTypes.Name, user.UserName),
-                new(ClaimTypes.Role, "Admin")
-            ];
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                configuration.GetSection("AppSettings:Token").Value));
-
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-
-            var token = new JwtSecurityToken(
-                claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: creds);
-
-            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
-
-            return jwt;
-        }
-
-        private static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using var hmac = new HMACSHA512();
-            passwordSalt = hmac.Key;
-            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-        }
-
-        private static bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using var hmac = new HMACSHA512(passwordSalt);
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
-            return computedHash.SequenceEqual(passwordHash);
+            return Ok(token);
         }
     }
 }

@@ -10,18 +10,19 @@ namespace API.Controllers;
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
-public class UserController(DataContext dataContext, IUserService userService) : ControllerBase
+public class UserController(IUserService userService) : ControllerBase
 {
     [HttpGet, Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<User>>> GetAll()
     {
-        return await dataContext.Users.ToListAsync();
+        var users = await userService.GetAll();
+        return Ok(users);
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<User>> GetById(int id)
     {
-        return await dataContext.Users.FindAsync(id);
+        return await userService.GetById(id);
     }
 
     [HttpGet("get-me")]
