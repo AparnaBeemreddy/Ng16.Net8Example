@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UserController(DataContext dataContext, IUserService userService) : ControllerBase
 {
-    [HttpGet]
+    [HttpGet, Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<User>>> GetAll()
     {
         return await dataContext.Users.ToListAsync();

@@ -1,7 +1,6 @@
 ﻿using API.Data;
+using API.DTOs;
 using API.Entities;
-using API.Services;
-using Azure.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -14,8 +13,8 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController(DataContext dataContext, IConfiguration configuration,
-        IUserService userService) : ControllerBase
+    public class AuthController(DataContext dataContext, IConfiguration configuration) 
+        : ControllerBase
     {
         [HttpPost("register")]
         public async Task<User> Register(UserDTO user)
@@ -24,12 +23,13 @@ namespace API.Controllers
 
             var newUser = new User
             {
-                UserName = user.UserName,
+                UserName = user.Username,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt
             };
 
             await dataContext.Users.AddAsync(newUser);
+            await dataContext.SaveChangesAsync();
 
             return newUser;
         }
@@ -37,7 +37,7 @@ namespace API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserDTO request)
         {
-            var user = await dataContext.Users.Where(u => u.UserName == request.UserName).FirstOrDefaultAsync();
+            var user = await dataContext.Users.Where(u => u.UserName == request.Username).FirstOrDefaultAsync();
 
             if (user == null)
             {
@@ -51,8 +51,14 @@ namespace API.Controllers
 
             string token = CreateToken(user);
 
-            var newRefreshToken = GenerateRefreshToken();
-            SetRefreshToken(newRefreshToken);
+            //var newRefreshToken = GenerateRefreshToken();
+            //SetRefreshToken(newRefreshToken);
+
+            //user.RefreshToken = newRefreshToken;
+            //user.TokenCreated = DateTime.Now;
+            //user.TokenExpires = DateTime.Now.AddDays(1);
+
+            //await dataContext.SaveChangesAsync();
 
             return Ok(token);
         }
@@ -72,12 +78,12 @@ namespace API.Controllers
             return Ok(refreshToken);
         }
 
-        private void SetRefreshToken(object newRefreshToken)
+        private void SetRefreshToken(string newRefreshToken)
         {
             throw new NotImplementedException();
         }
 
-        private object GenerateRefreshToken()
+        private string GenerateRefreshToken()
         {
             throw new NotImplementedException();
         }
