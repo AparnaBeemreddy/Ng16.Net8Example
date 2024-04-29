@@ -1,4 +1,5 @@
-﻿using API.Data;
+﻿using API.Constants;
+using API.Data;
 using API.DTOs;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AuthController(DataContext dataContext, IConfiguration configuration) 
+    public class AuthController(DataContext dataContext, IConfiguration configuration)
         : ControllerBase
     {
         [HttpPost("register")]
@@ -41,24 +42,19 @@ namespace API.Controllers
 
             if (user == null)
             {
-                return BadRequest("User not found");
+                return BadRequest("Invalid Username/Password."); //User not found.
             }
 
             if (!VerifyPasswordHash(request.Password, user.PasswordHash, user.PasswordSalt))
             {
-                return BadRequest("Incorrect password");
+                return BadRequest("Invalid Username/Password."); //Incorrect password.
             }
 
             string token = CreateToken(user);
+            var newRefreshToken = GenerateRefreshToken();
+            SetRefreshToken(newRefreshToken, user);
 
-            //var newRefreshToken = GenerateRefreshToken();
-            //SetRefreshToken(newRefreshToken);
-
-            //user.RefreshToken = newRefreshToken;
-            //user.TokenCreated = DateTime.Now;
-            //user.TokenExpires = DateTime.Now.AddDays(1);
-
-            //await dataContext.SaveChangesAsync();
+            await dataContext.SaveChangesAsync();
 
             return Ok(token);
         }
@@ -66,26 +62,58 @@ namespace API.Controllers
         [HttpPost("refresh-token")]
         public async Task<ActionResult<string>> RefreshToken()
         {
-            var refreshToken = Request.Cookies["refreshToken"];
+            var refreshToken = Request.Cookies[Cookies.RefreshToken];
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                return Unauthorized("Invalid Refresh Token.");
+            }
 
-            var user = await dataContext.Users.Where(u => u.UserName == Request.Cookies["Name"]).FirstOrDefaultAsync();
+            var user = await dataContext.Users.Where(u => u.UserName == Request.Cookies[Cookies.Name]).FirstOrDefaultAsync();
 
             if (!user.RefreshToken.Equals(refreshToken))
             {
-                return Unauthorized("Invalid Refresh Token");
+                return Unauthorized("Invalid Refresh Token.");
+            }
+            else if (user.TokenExpires < DateTime.Now)
+            {
+                return Unauthorized("Token expired.");
             }
 
-            return Ok(refreshToken);
+            string token = CreateToken(user);
+            var newRefreshToken = GenerateRefreshToken();
+            SetRefreshToken(newRefreshToken, user);
+
+            await dataContext.SaveChangesAsync();
+
+            return Ok(newRefreshToken.Token);
         }
 
-        private void SetRefreshToken(string newRefreshToken)
+        private void SetRefreshToken(RefreshToken newRefreshToken, User user)
         {
-            throw new NotImplementedException();
+            var cookieOptions = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = newRefreshToken.TokenExpires
+            };
+
+            Response.Cookies.Append(Cookies.RefreshToken, newRefreshToken.Token, cookieOptions);
+            Response.Cookies.Append(Cookies.Name, user.UserName, cookieOptions);
+
+            user.RefreshToken = newRefreshToken.Token;
+            user.TokenCreated = newRefreshToken.TokenCreated;
+            user.TokenExpires = newRefreshToken.TokenExpires;
         }
 
-        private string GenerateRefreshToken()
+        private static RefreshToken GenerateRefreshToken()
         {
-            throw new NotImplementedException();
+            var refreshToken = new RefreshToken
+            {
+                Token = Convert.ToBase64String(RandomNumberGenerator.GetBytes(64)),
+                TokenCreated = DateTime.Now,
+                TokenExpires = DateTime.Now.AddDays(7)
+            };
+
+            return refreshToken;
         }
 
         private string CreateToken(User user)

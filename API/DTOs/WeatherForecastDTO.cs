@@ -1,6 +1,6 @@
 namespace API.DTOs;
 
-public class WeatherForecast
+public class WeatherForecastDTO
 {
     public DateOnly Date { get; set; }
 

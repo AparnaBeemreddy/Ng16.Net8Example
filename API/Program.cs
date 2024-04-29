@@ -1,3 +1,4 @@
+using API.Constants;
 using API.Data;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -44,7 +45,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = false
         };
     });
-builder.Services.AddCors(options => options.AddPolicy(name: "NgOrigins",
+builder.Services.AddCors(options => options.AddPolicy(name: ApiConstants.CorsPolicy,
     policy =>
     {
         policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
@@ -64,8 +65,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
-app.UseCors("NgOrigins");
+app.UseCors(ApiConstants.CorsPolicy);
 
 app.MapControllers();
 
