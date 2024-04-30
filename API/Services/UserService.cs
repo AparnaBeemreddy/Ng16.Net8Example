@@ -89,7 +89,7 @@ namespace API.Services
             return refreshToken;
         }
 
-        public async Task<User> SetRefreshToken(RefreshToken newRefreshToken, User user, CookieOptions cookieOptions)
+        public async Task<User> SetRefreshToken(RefreshToken newRefreshToken, User user)
         {
             user.RefreshToken = newRefreshToken.Token;
             user.TokenCreated = newRefreshToken.TokenCreated;

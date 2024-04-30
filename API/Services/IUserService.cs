@@ -13,6 +13,6 @@ namespace API.Services
         bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt);
         string CreateToken(User user, string configToken);
         RefreshToken GenerateRefreshToken();
-        Task<User> SetRefreshToken(RefreshToken newRefreshToken, User user, CookieOptions cookieOptions);
+        Task<User> SetRefreshToken(RefreshToken newRefreshToken, User user);
     }
 }

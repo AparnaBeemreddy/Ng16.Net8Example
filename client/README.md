@@ -1,3 +1,7 @@
+# Clone
+
+After cloning the code from GitHub, run `npm install` to install the dependencies needed to run this app.
+
 # Client
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.

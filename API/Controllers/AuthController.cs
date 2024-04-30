@@ -46,7 +46,7 @@ namespace API.Controllers
                 return BadRequest("Invalid Username/Password."); //Incorrect password.
             }
 
-            string token = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            string jwt = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
             var newRefreshToken = userService.GenerateRefreshToken();
 
             var cookieOptions = new CookieOptions
@@ -54,12 +54,12 @@ namespace API.Controllers
                 HttpOnly = true,
                 Expires = newRefreshToken.TokenExpires
             };
-            user = await userService.SetRefreshToken(newRefreshToken, user, cookieOptions);
+            user = await userService.SetRefreshToken(newRefreshToken, user);
 
             Response.Cookies.Append(Cookies.RefreshToken, user.RefreshToken, cookieOptions);
             Response.Cookies.Append(Cookies.Name, user.UserName, cookieOptions);
 
-            return Ok(token);
+            return Ok(jwt);
         }
 
         [HttpPost("refresh-token")]
@@ -82,7 +82,7 @@ namespace API.Controllers
                 return Unauthorized("Token expired.");
             }
 
-            string token = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            string jwt = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
             var newRefreshToken = userService.GenerateRefreshToken();
 
             var cookieOptions = new CookieOptions
@@ -90,12 +90,12 @@ namespace API.Controllers
                 HttpOnly = true,
                 Expires = newRefreshToken.TokenExpires
             };
-            user = await userService.SetRefreshToken(newRefreshToken, user, cookieOptions);
+            user = await userService.SetRefreshToken(newRefreshToken, user);
 
             Response.Cookies.Append(Cookies.RefreshToken, user.RefreshToken, cookieOptions);
             Response.Cookies.Append(Cookies.Name, user.UserName, cookieOptions);
 
-            return Ok(token);
+            return Ok(jwt);
         }
     }
 }
