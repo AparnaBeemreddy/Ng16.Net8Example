@@ -7,9 +7,9 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace API.Services
+namespace API.Services.EmailService
 {
-    public class UserService(DataContext dataContext, IHttpContextAccessor httpContextAccessor) : IUserService
+    public class EmailService(DataContext dataContext, IHttpContextAccessor httpContextAccessor) : IEmailService
     {
         public async Task<IEnumerable<User>> GetAll()
         {

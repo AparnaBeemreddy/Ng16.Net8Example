@@ -2,7 +2,7 @@
 using API.Data;
 using API.DTOs;
 using API.Entities;
-using API.Services;
+using API.Services.UserService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
