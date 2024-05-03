@@ -8,9 +8,9 @@ MS SQL
 
 Topics covered
 ---------------------------------------------------------------------------
-JWT Authentication
-MailKit Email
-Options Pattern
+.  JWT Authentication
+.  MailKit Email
+.  Options Pattern
 
 Useful Git Commands:
 ---------------------------------------------------------------------------
