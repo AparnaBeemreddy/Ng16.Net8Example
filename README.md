@@ -1,10 +1,10 @@
 .Net Web Application with Angular
 ---------------------------------------------------------------------------
-.NET 8.0.203
-Angular CLI: 17.3.2
-Node: 20.11.1
-Package Manager: npm 10.6.0
-MS SQL
+* .NET 8.0.203
+* Angular CLI: 17.3.2
+* Node: 20.11.1
+* Package Manager: npm 10.6.0
+* MS SQL
 
 Topics covered
 ---------------------------------------------------------------------------
@@ -14,4 +14,4 @@ Topics covered
 
 Useful Git Commands:
 ---------------------------------------------------------------------------
-git branch --set-upstream-to=DatingApp/<branch> Master
+* git branch --set-upstream-to={repositoryName}/<branch> {branchName}
