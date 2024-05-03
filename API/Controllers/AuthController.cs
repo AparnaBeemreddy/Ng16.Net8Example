@@ -46,7 +46,7 @@ namespace API.Controllers
                 return BadRequest("Invalid Username/Password."); //Incorrect password.
             }
 
-            string jwt = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            string jwt = userService.CreateToken(user, configuration.GetSection("AuthSettings:IssuerSigningKey").Value);
             var newRefreshToken = userService.GenerateRefreshToken();
 
             var cookieOptions = new CookieOptions
@@ -82,7 +82,7 @@ namespace API.Controllers
                 return Unauthorized("Token expired.");
             }
 
-            string jwt = userService.CreateToken(user, configuration.GetSection("AppSettings:Token").Value);
+            string jwt = userService.CreateToken(user, configuration.GetSection("AuthSettings:IssuerSigningKey").Value);
             var newRefreshToken = userService.GenerateRefreshToken();
 
             var cookieOptions = new CookieOptions

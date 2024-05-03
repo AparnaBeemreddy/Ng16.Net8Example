@@ -1,3 +1,5 @@
+global using Microsoft.Extensions.Options;
+
 using API.Constants;
 using API.Data;
 using API.Services.EmailService;
@@ -13,6 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddOptions<EmailSettings>()
+    .Bind(builder.Configuration.GetSection(EmailSettings.SectionName))
+    .ValidateDataAnnotations();
 builder.Services.AddDbContextPool<DataContext>(options =>
     {
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
@@ -42,7 +47,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-            .GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+            .GetBytes(builder.Configuration.GetSection("AuthSettings:IssuerSigningKey").Value)),
             ValidateIssuer = false,
             ValidateAudience = false
         };
@@ -50,7 +55,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddCors(options => options.AddPolicy(name: ApiConstants.CorsPolicy,
     policy =>
     {
-        policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+        policy.WithOrigins(builder.Configuration.GetSection("AuthSettings:AllowedHosts").Value)
+        .AllowAnyMethod().AllowAnyHeader();
     }));
 
 var app = builder.Build();
