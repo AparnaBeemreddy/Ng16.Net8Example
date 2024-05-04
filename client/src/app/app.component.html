@@ -1,19 +1,21 @@
 <h1>{{title}}</h1>
 
-<!-- <ul>
-    <li *ngFor="let user of users">
-        {{user.id}} - {{user.userName}}
-    </li>
-</ul> -->
-
-<div>
-    Name:
-    <input [(ngModel)]="user.username" placeholder="Name">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <app-login></app-login>
+    </div>
+    <div class="col"></div>
+    <div class="col weathercontainer">
+        <app-weather></app-weather>
+    </div>
 </div>
-<div>
-    Password:
-    <input [(ngModel)]="user.password" placeholder="Password" type="password">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <p>Users List</p>
+        <ul *ngIf="isLoggedIn">
+            <li *ngFor="let user of users">
+                {{user.id}} - {{user.userName}}
+            </li>
+        </ul>
+    </div>
 </div>
-<button (click)="register(user)">Register</button>
-<button class="btn btn-primary" (click)="login(user)">Login</button>
-<button (click)="getMe()">Get Me</button>
