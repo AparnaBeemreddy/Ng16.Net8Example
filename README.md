@@ -10,8 +10,9 @@
 Topics covered
 ---------------------------------------------------------------------------
 * JWT Authentication
-* MailKit Email
+* MailKit Email (https://ethereal.email/create)
 * Options Pattern
+* Weather (https://rapidapi.com/worldapi/api/open-weather13)
 
 Useful Git Commands:
 ---------------------------------------------------------------------------
