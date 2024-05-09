@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../services/weather.service';
-import { WeatherData } from '../models/weather.model';
-import { CommonModule, Time } from '@angular/common';
+import { WeatherModel } from '../models/weather.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-weather',
@@ -11,9 +11,10 @@ import { CommonModule, Time } from '@angular/common';
   styleUrl: './weather.component.scss'
 })
 export class WeatherComponent implements OnInit {
-  weatherData?: WeatherData;
+  weatherModel?: WeatherModel;
   sunsetTime?: Date;
   currentDate?: Date;
+  iconURL: string = '';
 
   constructor(private weatherService: WeatherService) {
   }
@@ -21,11 +22,13 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.weatherService.getWeatherData('Edison').subscribe(
       (response) => {
-        this.weatherData = response;
-        this.sunsetTime = new Date(this.weatherData.sys.sunset * 1000);
-        this.weatherData.sunset_time = this.sunsetTime.toLocaleTimeString();
+        this.weatherModel = response;
+        this.sunsetTime = new Date(this.weatherModel.sys.sunset * 1000);
+        this.weatherModel.sunset_time = this.sunsetTime.toLocaleTimeString();
         this.currentDate = new Date();
-        this.weatherData.isDay = this.currentDate.getTime() < this.sunsetTime.getTime();
+        this.weatherModel.isDay = this.currentDate.getTime() < this.sunsetTime.getTime();
+        this.weatherModel.sunrise_time = new Date(this.weatherModel.sys.sunrise * 1000).toLocaleTimeString();
+        this.iconURL = 'https://openweathermap.org/img/wn/' + this.weatherModel.weather[0].icon + '@2x.png';
       });
   }
 }

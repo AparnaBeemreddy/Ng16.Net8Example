@@ -29,10 +29,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
+              "src/styles.scss"
             ],
             "scripts": [
+              "./node_modules/angular-font-awesome/dist/angular-font-awesome.js",
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
@@ -98,17 +100,33 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
+              "src/styles.scss"
             ],
             "scripts": [
+              "./node_modules/angular-font-awesome/dist/angular-font-awesome.js",
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/popper.js/dist/popper.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

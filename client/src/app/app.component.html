@@ -1,26 +1,28 @@
-<app-header></app-header>
+<div>
+    <app-header></app-header>
 
-<h1>{{title}}</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <app-login></app-login>
+    <h1>{{title}}</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <app-login></app-login>
+        </div>
+        <div class="col"></div>
+        <div class="col weathercontainer">
+            <app-weather></app-weather>
+        </div>
     </div>
-    <div class="col"></div>
-    <div class="col weathercontainer">
-        <app-weather></app-weather>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <p>Users List</p>
+            <ul *ngIf="isLoggedIn">
+                <li *ngFor="let user of users">
+                    {{user.id}} - {{user.userName}}
+                </li>
+            </ul>
+        </div>
     </div>
+
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
 </div>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <p>Users List</p>
-        <ul *ngIf="isLoggedIn">
-            <li *ngFor="let user of users">
-                {{user.id}} - {{user.userName}}
-            </li>
-        </ul>
-    </div>
-</div>
-
-<router-outlet></router-outlet>
-
-<app-footer></app-footer>

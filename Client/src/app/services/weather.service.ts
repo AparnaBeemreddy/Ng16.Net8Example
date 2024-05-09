@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { WeatherData } from '../models/weather.model';
+import { WeatherModel } from '../models/weather.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,11 +15,13 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeatherData(cityName: string): Observable<WeatherData> {
-    return this.http.get<WeatherData>(this.XRapidAPIRequestUri+cityName+'/EN', {
-      headers: new HttpHeaders()
-        .set(this.XRapidAPIKeyHeaderName, this.XRapidAPIKeyHeaderValue)
-        .set(this.XRapidAPIHostHeaderName, this.XRapidAPIHostHeaderValue),
-    })
-  };
+  getWeatherData(cityName: string): Observable<WeatherModel> {
+    return this.http.get<WeatherModel>('./assets/TestWeatherData_' + cityName + '.json');
+
+    // return this.http.get<WeatherModel>(this.XRapidAPIRequestUri + cityName + '/EN', {
+    //   headers: new HttpHeaders()
+    //     .set(this.XRapidAPIKeyHeaderName, this.XRapidAPIKeyHeaderValue)
+    //     .set(this.XRapidAPIHostHeaderName, this.XRapidAPIHostHeaderValue),
+    // });
+  }
 }

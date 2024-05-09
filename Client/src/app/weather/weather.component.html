@@ -1,26 +1,29 @@
-<div class="container" *ngIf="weatherData">
+<div class="container" *ngIf="weatherModel">
   <div class="card text-white bg-primary m-5" style="max-width: 18rem;">
     <div class="card-header text-center">
-      <h2>{{weatherData.name}}</h2>
-      <h3>{{weatherData.main.temp}} °F</h3>
-<div *ngIf="weatherData.isDay">
-<i class="fas fa-3x fa-sun sun"></i>
-</div>
-<div *ngIf="!weatherData.isDay">
-<i class="fas fa-3x fa-moon moon"></i>
-</div>
+      <h2>{{weatherModel.name}}</h2>
+      <h5>{{weatherModel.main.temp.toFixed(0)}}°F {{weatherModel.weather[0].main}}</h5>
+      <p class="card-text">
+        H: {{weatherModel.main.temp_max.toFixed(0)}}°
+        L: {{weatherModel.main.temp_min.toFixed(0)}}°
+      </p>
+      <p><img src="{{iconURL}}" alt="weather image" /></p>
+      <!-- <div *ngIf="weatherModel.isDay"> -->
+      <!-- <i class="fas fa-3x fa-sun"></i> -->
+      <!-- </div>
+      <div *ngIf="!weatherModel.isDay"> -->
+      <!-- <i class="fas fa-3x fa-moon"></i> -->
+      <!-- </div> -->
     </div>
     <div class="card-body">
       <!-- <h5 class="card-title">Primary card title</h5> -->
-      <p class="card-text">{{weatherData.weather[0].main}}</p>
-      <p class="card-text">H: {{weatherData.main.temp_max}}° L: {{weatherData.main.temp_min}}°</p>
-      <p class="card-text">Sunrise: {{weatherData.sys.sunrise}} AM</p>
-      <p class="card-text">Sunset: {{weatherData.sys.sunset}} PM</p>
-      <p class="card-text">Wind: {{weatherData.wind.speed}} MPH</p>
-      <p class="card-text">Feels like: {{weatherData.main.feels_like}} °F</p>
-      <p class="card-text">Visibility: {{weatherData.visibility}} mi</p>
-      <p class="card-text">Humidity: {{weatherData.main.humidity}} %</p>
-      <p class="card-text">Pressure: {{weatherData.main.pressure}} inHg</p>
+      <p class="card-text">Sunrise: {{weatherModel.sunrise_time}}</p>
+      <p class="card-text">Sunset: {{weatherModel.sunset_time}}</p>
+      <p class="card-text">Wind: {{weatherModel.wind.speed}} MPH</p>
+      <p class="card-text">Feels like: {{weatherModel.main.feels_like.toFixed(0)}}°</p>
+      <p class="card-text">Visibility: {{weatherModel.visibility}} mi</p>
+      <p class="card-text">Humidity: {{weatherModel.main.humidity}} %</p>
+      <p class="card-text">Pressure: {{weatherModel.main.pressure}} inHg</p>
     </div>
   </div>
 </div>
