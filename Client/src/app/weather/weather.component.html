@@ -3,7 +3,12 @@
     <div class="card-header text-center">
       <h2>{{weatherData.name}}</h2>
       <h3>{{weatherData.main.temp}} °F</h3>
-      <!-- <p>Weather image</p> -->
+<div *ngIf="weatherData.isDay">
+<i class="fas fa-3x fa-sun sun"></i>
+</div>
+<div *ngIf="!weatherData.isDay">
+<i class="fas fa-3x fa-moon moon"></i>
+</div>
     </div>
     <div class="card-body">
       <!-- <h5 class="card-title">Primary card title</h5> -->

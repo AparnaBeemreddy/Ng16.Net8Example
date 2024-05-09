@@ -12,6 +12,8 @@ export interface WeatherData {
     id: number
     name: string
     cod: number
+    sunset_time: string
+    isDay: boolean
   }
   
   export interface Coord {

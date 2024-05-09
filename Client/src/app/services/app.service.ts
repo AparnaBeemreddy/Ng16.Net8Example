@@ -9,6 +9,6 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   public getUsers() {
-    return this.http.get("https://localhost:5200/api/user");
+    return this.http.get('https://localhost:5200/api/user');
   }
 }
