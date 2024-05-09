@@ -12,7 +12,16 @@ Topics covered
 * JWT Authentication
 * MailKit Email (https://ethereal.email/create)
 * Options Pattern
-* Weather (https://rapidapi.com/worldapi/api/open-weather13)
+* Consume Web API - (https://localhost:5200/api/)
+* Consume External API - Weather (https://rapidapi.com/worldapi/api/open-weather13)
+
+Angular CLI Commands:
+---------------------------------------------------------------------------
+*  npm install -g npm@10
+*  npm install -g @angular/cli@17
+*  npm install bootstrap@latest jquery --save
+*  npm install popper.js --save
+*  npm install font-awesome --save
 
 Useful Git Commands:
 ---------------------------------------------------------------------------
