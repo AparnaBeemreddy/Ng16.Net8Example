@@ -1,11 +1,11 @@
-.Net Web Application with Angular
+.Net Web Application with Angular, Web API, & MS SQL
 ---------------------------------------------------------------------------
 * .NET SDK: 8.0.203
-* Angular CLI: 17.3.2
-* Node: 20.11.1
-* Package Manager: npm 10.6.0
 * MS SQL
-* Bootstrap: 5.3.3
+* Node: 20.11.1
+* Package Manager: npm 10.7.0
+* Angular CLI: 17.3.2
+* Bootstrap: 5.3.3 
 
 Topics covered
 ---------------------------------------------------------------------------
@@ -14,11 +14,24 @@ Topics covered
 * Options Pattern
 * Consume Web API - (https://localhost:5200/api/)
 * Consume External API - Weather (https://rapidapi.com/worldapi/api/open-weather13)
+* Angular Components/Services/Routing
 
 Angular CLI Commands:
 ---------------------------------------------------------------------------
+*  node -v
 *  npm install -g npm@10
 *  npm install -g @angular/cli@17
+*  ng v
+*  mkdir {folder-name}
+*  cd {path}
+*  ng --help
+*  ng n {project-name}
+*  ng rename {project-name} {new-project-name}
+*  code .
+*  ng lint
+*  ng test
+*  ng e2e
+*  ng serve / npm start (ng build + ng run)
 *  npm install bootstrap@latest jquery --save
 *  npm install popper.js --save
 *  npm install font-awesome --save
