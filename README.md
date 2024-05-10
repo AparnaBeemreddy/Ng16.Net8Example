@@ -38,7 +38,20 @@ Angular CLI Commands:
 
 Git Commands:
 ---------------------------------------------------------------------------
+*  git init / git init newProjectName
 *  git clone https://github.com/AparnaBeemreddy/Ng16.Net8Example.git
 *  git config --global user.email "YourEmail@example.com"
 *  git config --global user.name "Your Name"
-*  git branch --set-upstream-to={repositoryName}/<branch> {branchName}  
+*  git branch --set-upstream-to={repositoryName}/<branch> {branchName}
+*  git add {fileName}
+*  git add -A
+*  git commit -m "commit message"
+*  git pull
+*  git push
+*  git status
+*  git log
+*  git log --online
+*  git log -n 3
+*  git log --stat
+*  git blame README.md
+*  
