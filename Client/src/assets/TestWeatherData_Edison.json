@@ -6,7 +6,7 @@
   "weather": [
     {
       "id": 800,
-      "main": "Clear",
+      "main": "Cloudy",
       "description": "clear sky",
       "icon": "02n"
     }

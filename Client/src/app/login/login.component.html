@@ -1,13 +1,21 @@
-<div class="container">
-    <div>
-        Name:
-        <input [(ngModel)]="userModel.username" placeholder="Name">
+<div class="container border m-2">
+    <div class="row row-cols-4 m-2">
+        <div class="col">Name:</div>
+        <div class="col cols-3">
+            <input [(ngModel)]="userModel.username" placeholder="Name">
+        </div>
     </div>
-    <div>
-        Password:
-        <input [(ngModel)]="userModel.password" placeholder="Password" type="password">
+    <div class="row row-cols-4 m-2">
+        <div class="col">Password:</div>
+        <div class="col cols-3">
+            <input [(ngModel)]="userModel.password" placeholder="Password" type="password">
+        </div>
     </div>
-    <button (click)="register(userModel)">Register</button>
-    <button class="btn btn-primary" (click)="login(userModel)">Login</button>
-    <button (click)="getMe()">Get Me</button>
+    <div class="row row-cols-4 m-2">
+        <div class="col"></div>
+        <button class="btn btn-success btn-lg btn-block m-2" (click)="register(userModel)">
+            Register</button>
+        <button class="btn btn-primary btn-lg btn-block m-2" (click)="login(userModel)">
+            Login</button>
+    </div>
 </div>

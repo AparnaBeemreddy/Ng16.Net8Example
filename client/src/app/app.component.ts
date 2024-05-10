@@ -16,19 +16,12 @@ import { FooterComponent } from './shared/footer/footer.component';
   imports: [RouterOutlet, CommonModule, FormsModule, LoginComponent, WeatherComponent, HeaderComponent, FooterComponent]
 })
 export class AppComponent implements OnInit {
-  title = '.Net Web Application with Angular, Web API, & MS SQL';
   users: any;
   isLoggedIn = false;
 
-  constructor(private appService: AppService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-  }
-
-  getUsers() {
-    this.appService.getUsers().subscribe(response => {
-      this.users = response;
-    });
   }
 }
