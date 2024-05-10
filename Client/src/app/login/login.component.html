@@ -1,21 +1,23 @@
 <div class="container border m-2">
-    <div class="row row-cols-4 m-2">
-        <div class="col">Name:</div>
-        <div class="col cols-3">
-            <input [(ngModel)]="userModel.username" placeholder="Name">
+    <div class="m-2">
+        <div class="row row-cols-4">
+            <div class="col m-2">Name:</div>
+            <div class="col cols-3">
+                <input [(ngModel)]="userModel.username" placeholder="Name">
+            </div>
         </div>
-    </div>
-    <div class="row row-cols-4 m-2">
-        <div class="col">Password:</div>
-        <div class="col cols-3">
-            <input [(ngModel)]="userModel.password" placeholder="Password" type="password">
+        <div class="row row-cols-4">
+            <div class="col m-2">Password:</div>
+            <div class="col cols-3">
+                <input [(ngModel)]="userModel.password" placeholder="Password" type="password">
+            </div>
         </div>
-    </div>
-    <div class="row row-cols-4 m-2">
-        <div class="col"></div>
-        <button class="btn btn-success btn-lg btn-block m-2" (click)="register(userModel)">
-            Register</button>
-        <button class="btn btn-primary btn-lg btn-block m-2" (click)="login(userModel)">
-            Login</button>
+        <div class="row row-cols-4">
+            <div class="col m-2"></div>
+            <button class="btn btn-success btn-sm btn-block m-2 mt-1" (click)="register(userModel)">
+                Register</button>
+            <button class="btn btn-primary btn-sm btn-block m-2 mt-1" (click)="login(userModel)">
+                Login</button>
+        </div>
     </div>
 </div>

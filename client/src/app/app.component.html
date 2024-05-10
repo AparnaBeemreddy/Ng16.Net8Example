@@ -1,10 +1,8 @@
 <app-header></app-header>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <app-login></app-login>
-    </div>
-    <div class="col">
+<div class="row row-cols-4">
+    <div class="col cols-3">
+        <router-outlet></router-outlet>
         <p>Users List</p>
         <ul *ngIf="isLoggedIn">
             <li *ngFor="let user of users">
@@ -13,10 +11,9 @@
         </ul>
     </div>
     <div class="col">
+        <app-login></app-login>
         <app-weather></app-weather>
     </div>
 </div>
-
-<router-outlet></router-outlet>
 
 <app-footer></app-footer>
