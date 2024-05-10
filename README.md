@@ -14,7 +14,7 @@ Topics covered
 * Options Pattern
 * Consume Web API - (https://localhost:5200/api/)
 * Consume External API - Weather (https://rapidapi.com/worldapi/api/open-weather13)
-* Angular Components/Services/Routing
+* Angular Components/Services/Routing/directives/decorators
 
 Angular CLI Commands:
 ---------------------------------------------------------------------------
@@ -36,9 +36,9 @@ Angular CLI Commands:
 *  npm install popper.js --save
 *  npm install font-awesome --save
 
-Useful Git Commands:
+Git Commands:
 ---------------------------------------------------------------------------
+*  git clone https://github.com/AparnaBeemreddy/Ng16.Net8Example.git
 *  git config --global user.email "YourEmail@example.com"
 *  git config --global user.name "Your Name"
-*  git branch --set-upstream-to={repositoryName}/<branch> {branchName}
-*  
+*  git branch --set-upstream-to={repositoryName}/<branch> {branchName}  
