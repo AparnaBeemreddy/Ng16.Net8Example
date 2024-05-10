@@ -25,4 +25,7 @@ Angular CLI Commands:
 
 Useful Git Commands:
 ---------------------------------------------------------------------------
-* git branch --set-upstream-to={repositoryName}/<branch> {branchName}
+*  git config --global user.email "YourEmail@example.com"
+*  git config --global user.name "Your Name"
+*  git branch --set-upstream-to={repositoryName}/<branch> {branchName}
+*  
