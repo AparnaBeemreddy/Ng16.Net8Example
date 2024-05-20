@@ -14,7 +14,7 @@ Topics covered
 * Options Pattern
 * Consume Web API - (https://localhost:5200/api/)
 * Consume External API - Weather (https://rapidapi.com/worldapi/api/open-weather13)
-* Angular Components/Services/Routing/directives/decorators
+* Angular Components/Services/Routing/directives/decorators/interceptor
 
 Angular CLI Commands:
 ---------------------------------------------------------------------------
