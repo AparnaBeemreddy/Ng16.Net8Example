@@ -1,0 +1,9 @@
+<div class="filter-container">
+    <span>Filter: </span>
+
+    <input type="radio" name="filter" value="all" [(ngModel)]="selectedFilter" (change)="onSelectedFilterChange()" />
+    <span>All ({{all}})</span>
+
+    <input type="radio" name="filter" value="true" [(ngModel)]="selectedFilter" (change)="onSelectedFilterChange()" />
+    <span>Certification Achieved ({{certified}})</span>
+</div>

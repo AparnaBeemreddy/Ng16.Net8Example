@@ -1,0 +1,37 @@
+<div class="ekart--product--details--info scroll">
+    <div class="ekart-product-detail-close">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="ekart-product-detail-image">
+        <img src="{{skill.icon}}" class="ekart-product-detail-image">
+    </div>
+
+    <div class="ekart-product-detail">
+        <div class="ekart-product-detail-name">
+            <h2>{{skill.name}}</h2>
+        </div>
+        <div class="ekart-product-detail-gbc">
+            <span>Experience : {{skill.experience}}+ years</span>
+        </div>
+        <div class="ekart-product-detail-price">
+            <p>
+                <span [ngStyle]="{ 'background-color': skill.isCertified ? 'green' : 'red', 'color': 'white' }">
+                    {{ skill.isCertified ? certificateURL : "Not Certified" }}
+                </span>
+                <ng-template #certificateURL>
+                    <span>{{skill.certificateURL}}</span>
+                </ng-template>
+            </p>
+        </div>
+
+        <div class="ekart-product-detail-desc">
+            <div style="padding: 5px 0px;border-bottom: #ccc 2px solid">
+                <h4>Skill Description</h4>
+            </div>
+            <div style="margin-top: 20px">
+                <p>{{skill.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay"></div>
