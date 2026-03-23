@@ -16,11 +16,11 @@
         <div class="ekart-product-detail-price">
             <p>
                 <span [ngStyle]="{ 'background-color': skill.isCertified ? 'green' : 'red', 'color': 'white' }">
-                    {{ skill.isCertified ? certificateURL : "Not Certified" }}
+                    {{ skill.isCertified ? "Certified" : "Not Certified" }}
                 </span>
-                <ng-template #certificateURL>
-                    <span>{{skill.certificateURL}}</span>
-                </ng-template>
+                <ng-container *ngIf="skill.isCertified">
+                    <a href="{{skill.certificateURL}}" [ngStyle]="" target="_blank">View Certificate</a>
+                </ng-container>
             </p>
         </div>
 

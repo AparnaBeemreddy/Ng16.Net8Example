@@ -138,7 +138,7 @@ export class SkillListComponent {
       icon: "./assets/azure.jpg",
       experience: 4,
       isCertified: true,
-      certificateURL: "https://www.credential.net/abcdef12-3456-7890-abcd-ef1234567890"
+      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/DD167DA703C72C5E?sharingId=B2A65BCC68A48BCB"
     },
     {
       id: 15,
