@@ -17,7 +17,6 @@ export class ProductFilterComponent {
   @Output() selectedFilterChange: EventEmitter<string> = new EventEmitter<string>();
 
   onSelectedFilterChange() {
-    debugger;
     this.selectedFilterChange.emit(this.selectedFilter);
   }
 

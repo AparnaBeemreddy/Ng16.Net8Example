@@ -16,7 +16,6 @@ export class SkillContainerComponent {
   @ViewChild(SkillListComponent) skillListComponent: SkillListComponent;
  
   onSearchInputChange(searchText: string) {
-    debugger;
     this.searchText = searchText;
   }
 }

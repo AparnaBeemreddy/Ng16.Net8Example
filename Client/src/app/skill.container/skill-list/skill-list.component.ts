@@ -186,7 +186,6 @@ export class SkillListComponent {
   @Input() searchText: string = '';
 
   onFilterChange(value: string) {
-    debugger;
     this.selectedFilter = value;
   }
 }

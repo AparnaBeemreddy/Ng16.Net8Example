@@ -16,7 +16,6 @@ export class SkillDetailComponent implements OnInit {
   skill: SkillModel;
 
   ngOnInit(): void {
-    debugger;
     this.skill = this.skillListComponent.selectedSkill;
   }
 }

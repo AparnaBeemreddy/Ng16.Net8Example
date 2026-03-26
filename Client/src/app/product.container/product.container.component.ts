@@ -16,7 +16,6 @@ export class ProductContainerComponent {
   @ViewChild(ProductListComponent) productListComponent: ProductListComponent;
  
   onSearchInputChange(searchText: string) {
-    debugger;
     this.searchText = searchText;
   }
 
