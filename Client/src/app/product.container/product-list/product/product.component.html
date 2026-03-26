@@ -1,0 +1,19 @@
+<div class="ekart--product--item" appHighlight>
+     <div class="ekart-wishlist-sale-container">
+            <div class="ekart--add--to--wishlist">
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+            </div>
+            <div class="ekart-on-sale-tag">{{((product.discountPrice/product.price) * 100).toFixed(0)}}% OFF</div>
+        </div>
+    <div class="ekart--product--image">
+        <img src="{{product.imageURL}}" class="ekart--product--image" alt="{{product.name}}" />
+    </div>
+    <div class="ekart--add--to--price">
+        ${{ product.price }}
+    </div>
+    <div class="ekart--product--name" [ngStyle]="{fontWeight:'bold'}">{{product.name}}</div>
+    <div class="ekart--product--category">{{product.category}}</div>
+    <div class="ekart--product--category" [ngStyle]="{fontWeight: 'bold', color: product.is_in_inventory ? 'green' : 'red'}">
+        {{product.is_in_inventory ? "In Stock" : "Out of Stock"}}
+    </div>
+</div>

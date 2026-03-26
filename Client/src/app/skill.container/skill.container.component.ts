@@ -1,18 +1,17 @@
-import { Component, Input, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { Component, Input, ViewChild } from '@angular/core';
+import { SkillDetailComponent } from '../skill.container/skill-detail/skill-detail.component';
+import { SkillListComponent } from '../skill.container/skill-list/skill-list.component';
 import { SearchComponent } from '../shared/search/search.component';
-import { SkillListComponent } from './skill-list/skill-list.component';
-import { SkillDetailComponent } from './skill-detail/skill-detail.component';
 
 @Component({
-  selector: 'app-container',
+  selector: 'app-skill.container',
   standalone: true,
   imports: [SearchComponent, SkillListComponent, SkillDetailComponent, CommonModule],
-  templateUrl: './container.component.html',
-  styleUrl: './container.component.scss'
+  templateUrl: './skill.container.component.html',
+  styleUrl: './skill.container.component.scss'
 })
-export class ContainerComponent {
+export class SkillContainerComponent {
   @Input() searchText: string = '';
   @ViewChild(SkillListComponent) skillListComponent: SkillListComponent;
  
@@ -21,3 +20,4 @@ export class ContainerComponent {
     this.searchText = searchText;
   }
 }
+  

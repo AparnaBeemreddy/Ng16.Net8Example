@@ -68,15 +68,15 @@ export class SkillListComponent {
       isCertified: false,
       certificateURL: ""
     },
-    {
-      id: 7,
-      name: "RxJS",
-      description: "RxJS is a library for reactive programming using Observables.",
-      icon: "./assets/rxjs.jpg",
-      experience: 5,
-      isCertified: false,
-      certificateURL: ""
-    },
+    // {
+    //   id: 7,
+    //   name: "RxJS",
+    //   description: "RxJS is a library for reactive programming using Observables.",
+    //   icon: "./assets/rxjs.jpg",
+    //   experience: 5,
+    //   isCertified: false,
+    //   certificateURL: ""
+    // },
     {
       id: 8,
       name: "C#",
@@ -96,11 +96,29 @@ export class SkillListComponent {
       certificateURL: ""
     },
     {
+      id: 17,
+      name: ".NET Framework",
+      description: ".NET Framework is a software framework developed by Microsoft that runs primarily on Windows.",
+      icon: "./assets/dotnetframework.png",
+      experience: 5,
+      isCertified: false,
+      certificateURL: ""
+    },
+    {
       id: 10,
       name: ".NET Core",
       description: ".NET Core is a free, cross-platform, open-source developer platform for building many different types of applications.",
       icon: "./assets/dotnetcore.png",
       experience: 5,
+      isCertified: false,
+      certificateURL: ""
+    },
+    {
+      id: 16,
+      name: "ADO.NET",
+      description: "ADO.NET is a data access technology from the Microsoft .NET Framework that provides communication between relational and non-relational systems through a common set of components.",
+      icon: "./assets/adonet.png",
+      experience: 4,
       isCertified: false,
       certificateURL: ""
     },
@@ -140,42 +158,24 @@ export class SkillListComponent {
       isCertified: true,
       certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/DD167DA703C72C5E?sharingId=B2A65BCC68A48BCB"
     },
-    {
-      id: 15,
-      name: "Dapper",
-      description: "Dapper is a simple object mapper for .NET that provides a high-performance alternative to Entity Framework.",
-      icon: "./assets/dapper.png",
-      experience: 0,
-      isCertified: false,
-      certificateURL: ""
-    },
-    {
-      id: 16,
-      name: "ADO.NET",
-      description: "ADO.NET is a data access technology from the Microsoft .NET Framework that provides communication between relational and non-relational systems through a common set of components.",
-      icon: "./assets/adonet.png",
-      experience: 4,
-      isCertified: false,
-      certificateURL: ""
-    },
-    {
-      id: 17,
-      name: ".NET Framework",
-      description: ".NET Framework is a software framework developed by Microsoft that runs primarily on Windows.",
-      icon: "./assets/dotnetframework.png",
-      experience: 5,
-      isCertified: false,
-      certificateURL: ""
-    },
-    {
-      id: 18,
-      name: "python",
-      description: "Python is a high-level, interpreted programming language known for its readability and versatility.",
-      icon: "./assets/python.jpg",
-      experience: 3,
-      isCertified: false,
-      certificateURL: ""
-    }
+    // {
+    //   id: 15,
+    //   name: "Dapper",
+    //   description: "Dapper is a simple object mapper for .NET that provides a high-performance alternative to Entity Framework.",
+    //   icon: "./assets/dapper.png",
+    //   experience: 0,
+    //   isCertified: false,
+    //   certificateURL: ""
+    // },
+    // {
+    //   id: 18,
+    //   name: "python",
+    //   description: "Python is a high-level, interpreted programming language known for its readability and versatility.",
+    //   icon: "./assets/python.jpg",
+    //   experience: 3,
+    //   isCertified: false,
+    //   certificateURL: ""
+    // }
   ];
 
   totalSkillsCount: number = this.skills.length;
