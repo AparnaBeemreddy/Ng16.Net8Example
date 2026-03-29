@@ -12,6 +12,7 @@
         </div>
         <div class="ekart-product-detail-gbc">
             <span>Experience : {{skill.experience}}+ years</span>
+            <span *ngIf="skill.isCertified">Certified Year : {{skill.certifiedYear || 'N/A'}}</span>
         </div>
         <div class="ekart-product-detail-price">
             <p>

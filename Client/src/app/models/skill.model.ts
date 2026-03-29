@@ -6,4 +6,5 @@ export class SkillModel {
     experience: number;
     isCertified: boolean;
     certificateURL: string;
+    certifiedYear: number | null;
 }

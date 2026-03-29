@@ -21,7 +21,8 @@ export class SkillListComponent {
       icon: "./assets/html5.png",
       experience: 9,
       isCertified: true,
-      certificateURL: "https://www.credential.net/12345678-90ab-cdef-1234-567890abcdef"
+      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/CW3106-67AB01",
+      certifiedYear: 2013
     },
     {
       id: 2,
@@ -30,7 +31,8 @@ export class SkillListComponent {
       icon: "./assets/javascript.png",
       experience: 9,
       isCertified: true,
-      certificateURL: "https://www.credential.net/98765432-10ba-fedc-9876-543210fedcba"
+      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
+      certifiedYear: 2013
     },
     {
       id: 3,
@@ -39,7 +41,8 @@ export class SkillListComponent {
       icon: "./assets/css3.png",
       experience: 7,
       isCertified: true,
-      certificateURL: "https://www.credential.net/11111111-2222-3333-4444-555555555555"
+      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
+      certifiedYear: 2013
     },
     {
       id: 4,
@@ -48,7 +51,8 @@ export class SkillListComponent {
       icon: "./assets/bootstrap.jpg",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 5,
@@ -57,7 +61,8 @@ export class SkillListComponent {
       icon: "./assets/angular.jpg",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 6,
@@ -66,7 +71,8 @@ export class SkillListComponent {
       icon: "./assets/typescript.png",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     // {
     //   id: 7,
@@ -75,7 +81,8 @@ export class SkillListComponent {
     //   icon: "./assets/rxjs.jpg",
     //   experience: 5,
     //   isCertified: false,
-    //   certificateURL: ""
+    //   certificateURL: "",
+    //   certifiedYear: null
     // },
     {
       id: 8,
@@ -84,7 +91,8 @@ export class SkillListComponent {
       icon: "./assets/csharp.png",
       experience: 6,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 9,
@@ -93,7 +101,8 @@ export class SkillListComponent {
       icon: "./assets/aspnet.jpg",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 17,
@@ -102,7 +111,8 @@ export class SkillListComponent {
       icon: "./assets/dotnetframework.png",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 10,
@@ -111,7 +121,8 @@ export class SkillListComponent {
       icon: "./assets/dotnetcore.png",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 16,
@@ -120,7 +131,8 @@ export class SkillListComponent {
       icon: "./assets/adonet.png",
       experience: 4,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 11,
@@ -129,7 +141,8 @@ export class SkillListComponent {
       icon: "./assets/efcore.png",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 12,
@@ -138,7 +151,8 @@ export class SkillListComponent {
       icon: "./assets/mssqlserver.png",
       experience: 5,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 13,
@@ -147,7 +161,8 @@ export class SkillListComponent {
       icon: "./assets/git.png",
       experience: 6,
       isCertified: false,
-      certificateURL: ""
+      certificateURL: "",
+      certifiedYear: null
     },
     {
       id: 14,
@@ -156,7 +171,8 @@ export class SkillListComponent {
       icon: "./assets/azure.jpg",
       experience: 4,
       isCertified: true,
-      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/DD167DA703C72C5E?sharingId=B2A65BCC68A48BCB"
+      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/DD167DA703C72C5E?sharingId=B2A65BCC68A48BCB",
+      certifiedYear: 2025
     },
     // {
     //   id: 15,
@@ -165,7 +181,8 @@ export class SkillListComponent {
     //   icon: "./assets/dapper.png",
     //   experience: 0,
     //   isCertified: false,
-    //   certificateURL: ""
+    //   certificateURL: "",
+    //   certifiedYear: null
     // },
     // {
     //   id: 18,
@@ -174,7 +191,8 @@ export class SkillListComponent {
     //   icon: "./assets/python.jpg",
     //   experience: 3,
     //   isCertified: false,
-    //   certificateURL: ""
+    //   certificateURL: "",
+    //   certifiedYear: null
     // }
   ];
 
