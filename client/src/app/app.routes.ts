@@ -6,6 +6,7 @@ import { ProductContainerComponent } from './product.container/product.container
 import { WeatherComponent } from './weather/weather.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' }, // Redirect empty path to Home
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'Skills', component: SkillContainerComponent },
     { path: 'Products', component: ProductContainerComponent },
     { path: 'Weather', component: WeatherComponent },
+    { path: 'Subscribe', component: SubscribeComponent },
     { path: 'SignUp', component: LoginComponent },
     { path: 'Login', component: LoginComponent },
     { path: '**', component: NotFoundComponent } // Wildcard route for a 404 page

@@ -1,0 +1,17 @@
+<div class="ekart--product--details--info scroll">
+    <div class="ekart-product-detail-close" (click)="onClose()">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+
+    <h2>Subscribe to our newsletter</h2>
+    <p>Get the latest updates and news delivered to your inbox.</p>
+
+    <input type="email" style="width: 100%;" placeholder="Enter your email to subscribe">
+
+    <div class="ekart-product-detail-addtoCart">
+        <button class="btn-subscribe" (click)="onSubscribe()">Subscribe</button>
+        &nbsp;
+        <button class="btn-subscribe" (click)="onClose()">Close</button>
+    </div>
+</div>
+<div class="overlay" (click)="onClose()"></div>

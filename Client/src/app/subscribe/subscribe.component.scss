@@ -1,0 +1,68 @@
+.btn-subscribe {
+    border: none;
+    background-color: #28282B;
+    padding: 10px 30px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    /* Sit on top of the page content */
+    width: 100%;
+    /* Full width (cover the whole page) */
+    height: 100%;
+    /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Black background with opacity */
+    z-index: 5;
+    /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer;
+    /* Add a pointer on hover */
+}
+
+.ekart--product--details--info {
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    transition: 1s;
+    width: 480px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 25px;
+}
+
+.ekart-product-detail-close {
+    text-align: right;
+    color: #28282B;
+    font-size: 20px;
+    font-weight: lighter;
+    padding: 5px 0px;
+}
+
+.ekart-product-detail-addtoCart {
+    margin: 20px 0px;
+}
+
+.scroll {
+    overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px #28282B;
+}
