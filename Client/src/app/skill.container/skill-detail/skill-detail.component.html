@@ -19,8 +19,11 @@
                 <span [ngStyle]="{ 'background-color': skill.isCertified ? 'green' : 'red', 'color': 'white' }">
                     {{ skill.isCertified ? "Certified" : "Not Certified" }}
                 </span>
-                <ng-container *ngIf="skill.isCertified">
+                <ng-container *ngIf="skill.isCertified && skill.certificateURL">
                     <a href="{{skill.certificateURL}}" [ngStyle]="" target="_blank">View Certificate</a>
+                </ng-container>
+                <ng-container *ngIf="skill.isCertified && skill.certificateImage">
+                    <a href="{{skill.certificateImage}}" [ngStyle]="" target="_blank">View Certificate Image</a>
                 </ng-container>
             </p>
         </div>

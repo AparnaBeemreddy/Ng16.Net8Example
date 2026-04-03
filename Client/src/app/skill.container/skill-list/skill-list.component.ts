@@ -21,8 +21,9 @@ export class SkillListComponent {
       icon: "./assets/html5.png",
       experience: 9,
       isCertified: true,
-      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/CW3106-67AB01",
-      certifiedYear: 2013
+      certificateURL: null, //"https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/CW3106-67AB01",
+      certifiedYear: 2013,
+      certificateImage: "./assets/AB_HTML5JSCSS3.pdf"
     },
     {
       id: 2,
@@ -31,8 +32,9 @@ export class SkillListComponent {
       icon: "./assets/javascript.png",
       experience: 9,
       isCertified: true,
-      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
-      certifiedYear: 2013
+      certificateURL: null, //"https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
+      certifiedYear: 2013,
+      certificateImage: "./assets/AB_HTML5JSCSS3.pdf"
     },
     {
       id: 3,
@@ -41,8 +43,9 @@ export class SkillListComponent {
       icon: "./assets/css3.png",
       experience: 7,
       isCertified: true,
-      certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
-      certifiedYear: 2013
+      certificateURL: null, //"https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/EXE931-0A1F65",
+      certifiedYear: 2013,
+      certificateImage: "./assets/AB_HTML5JSCSS3.pdf"
     },
     {
       id: 4,
@@ -52,7 +55,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 5,
@@ -62,7 +66,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 6,
@@ -72,7 +77,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     // {
     //   id: 7,
@@ -82,7 +88,8 @@ export class SkillListComponent {
     //   experience: 5,
     //   isCertified: false,
     //   certificateURL: "",
-    //   certifiedYear: null
+    //   certifiedYear: null,
+    //   certificateImage: null
     // },
     {
       id: 8,
@@ -92,7 +99,8 @@ export class SkillListComponent {
       experience: 6,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 9,
@@ -102,7 +110,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 17,
@@ -112,7 +121,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 10,
@@ -122,7 +132,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 16,
@@ -132,7 +143,8 @@ export class SkillListComponent {
       experience: 4,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 11,
@@ -142,7 +154,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 12,
@@ -152,7 +165,8 @@ export class SkillListComponent {
       experience: 5,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 13,
@@ -162,7 +176,8 @@ export class SkillListComponent {
       experience: 6,
       isCertified: false,
       certificateURL: "",
-      certifiedYear: null
+      certifiedYear: null,
+      certificateImage: null
     },
     {
       id: 14,
@@ -172,7 +187,8 @@ export class SkillListComponent {
       experience: 4,
       isCertified: true,
       certificateURL: "https://learn.microsoft.com/api/credentials/share/en-us/APARNABEEMREDDY-4351/DD167DA703C72C5E?sharingId=B2A65BCC68A48BCB",
-      certifiedYear: 2025
+      certifiedYear: 2025,
+      certificateImage: "./assets/AB_AzureFundamentals.pdf"
     },
     // {
     //   id: 15,
@@ -182,7 +198,8 @@ export class SkillListComponent {
     //   experience: 0,
     //   isCertified: false,
     //   certificateURL: "",
-    //   certifiedYear: null
+    //   certifiedYear: null,
+    //   certificateImage: null
     // },
     // {
     //   id: 18,
@@ -192,7 +209,8 @@ export class SkillListComponent {
     //   experience: 3,
     //   isCertified: false,
     //   certificateURL: "",
-    //   certifiedYear: null
+    //   certifiedYear: null,
+    //   certificateImage: null
     // }
   ];
 
