@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 
-import { FooterComponent } from './shared/footer/footer.component';
+import { BannerComponent } from "./shared/banner/banner.component";
 import { HeaderComponent } from './shared/header/header.component';
-import { TopHeaderComponent } from "./shared/top-header/top-header.component";
+import { FooterComponent } from './shared/footer/footer.component';
 import { UserModel } from './models/user.model';
 
 @Component({
@@ -14,7 +14,7 @@ import { UserModel } from './models/user.model';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [RouterOutlet, CommonModule, FormsModule,
-    HeaderComponent, FooterComponent, TopHeaderComponent]
+    BannerComponent, HeaderComponent, FooterComponent]
 })
 export class AppComponent {
   users: UserModel[];
