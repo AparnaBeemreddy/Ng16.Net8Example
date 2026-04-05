@@ -11,5 +11,5 @@ import { MainMenuComponent } from './main-menu/main-menu.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  title: string = 'eKart';
+  title: string = 'eLearn';
 }

@@ -1,4 +1,4 @@
-<div class="ekart--product--container">
+<div>
     <app-search (searchInputChange)="onSearchInputChange($event)"></app-search>
     <app-product-list [searchText]="searchText" #productListComponent></app-product-list>
     <app-product-detail *ngIf="productListComponent.selectedProduct"

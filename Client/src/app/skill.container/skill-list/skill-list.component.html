@@ -1,7 +1,7 @@
 <app-filter [all]="totalSkillsCount" [certified]="certifiedSkillsCount"
     (selectedFilterChange)="onFilterChange($event)"></app-filter>
 
-<div class="ekart--products--container">
+<div class="elearn--skills--container">
     <ng-container *ngFor="let skill of skills">
         <app-skill [skill]="skill" (click)="selectedSkill=skill" *ngIf="searchText ? 
             skill.name.toLowerCase().includes(searchText.toLowerCase()) 

@@ -1,4 +1,4 @@
-<div class="ekart--product--container">
+<div>
     <app-search (searchInputChange)="onSearchInputChange($event)"></app-search>
     <app-skill-list [searchText]="searchText" #skillListComponent></app-skill-list>
     <app-skill-detail *ngIf="skillListComponent.selectedSkill"

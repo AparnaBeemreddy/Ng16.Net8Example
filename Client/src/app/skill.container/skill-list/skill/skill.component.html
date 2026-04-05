@@ -1,10 +1,10 @@
-<div class="ekart--product--item" appHighlight>
-    <div class="ekart--product--image">
-        <img src="{{skill.icon}}" class="ekart--product--image" alt="{{skill.name}}" />
+<div class="elearn--skill--item" appHighlight>
+    <div class="elearn--skill--image">
+        <img src="{{skill.icon}}" class="elearn--skill--image" alt="{{skill.name}}" />
     </div>
-    <div class="ekart--product--name">{{skill.name}}</div>
-    <div class="ekart--product--category">Xp: {{skill.experience}}+ years</div>
-    <div class="ekart--product--category" [ngStyle]="{fontweight: 'bold', color: skill.isCertified ? 'green' : 'red'}">
+    <div class="elearn--skill--name">{{skill.name}}</div>
+    <div class="elearn--skill--category">Xp: {{skill.experience}}+ years</div>
+    <div class="elearn--skill--category" [ngStyle]="{fontweight: 'bold', color: skill.isCertified ? 'green' : 'red'}">
       {{skill.isCertified ? "Certificate Achieved" : "No Certificate"}}
     </div>
 </div>

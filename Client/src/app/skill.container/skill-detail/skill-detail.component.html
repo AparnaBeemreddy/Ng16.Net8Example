@@ -1,20 +1,20 @@
-<div class="ekart--product--details--info scroll">
-    <div class="ekart-product-detail-close">
+<div class="elearn--skill--details--info scroll">
+    <div class="elearn-skill-detail-close">
         <i class="fa fa-times" aria-hidden="true"></i>
     </div>
-    <div class="ekart-product-detail-image">
-        <img src="{{skill.icon}}" class="ekart-product-detail-image" alt="{{skill.name}}" />
+    <div class="elearn-skill-detail-image">
+        <img src="{{skill.icon}}" class="elearn-skill-detail-image" alt="{{skill.name}}" />
     </div>
 
-    <div class="ekart-product-detail">
-        <div class="ekart-product-detail-name">
+    <div class="elearn-skill-detail">
+        <div class="elearn-skill-detail-name">
             <h2>{{skill.name}}</h2>
         </div>
-        <div class="ekart-product-detail-gbc">
+        <div class="elearn-skill-detail-gbc">
             <span>Experience : {{skill.experience}}+ years</span>
             <span *ngIf="skill.isCertified">Certified Year : {{skill.certifiedYear || 'N/A'}}</span>
         </div>
-        <div class="ekart-product-detail-price">
+        <div class="elearn-skill-detail-price">
             <p>
                 <span [ngStyle]="{ 'background-color': skill.isCertified ? 'green' : 'red', 'color': 'white' }">
                     {{ skill.isCertified ? "Certified" : "Not Certified" }}
@@ -28,7 +28,7 @@
             </p>
         </div>
 
-        <div class="ekart-product-detail-desc">
+        <div class="elearn-skill-detail-desc">
             <div style="padding: 5px 0px;border-bottom: #ccc 2px solid">
                 <h4>Skill Description</h4>
             </div>
