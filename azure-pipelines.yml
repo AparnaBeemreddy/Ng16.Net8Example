@@ -18,8 +18,32 @@ steps:
 - checkout: self
   fetchDepth: 0
 
+- task: SonarCloudPrepare@4
+  inputs:
+    SonarQube: 'SonarQube Cloud-ProfileApp SvC'
+    organization: 'aparnabeemreddy'
+    scannerMode: 'dotnet'
+    projectKey: 'aparnabeemreddy_ProfileApp'
+    projectName: 'ProfileApp'
+
 - script: |
     npm install -g @angular/cli
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: SonarCloudAnalyze@4
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarCloudPublish@4
+  inputs:
+    pollingTimeoutSec: '300'
+- task: Npm@1
+  inputs:
+    command: 'install'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
